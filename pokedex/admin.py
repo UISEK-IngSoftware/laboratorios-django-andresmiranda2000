@@ -3,7 +3,7 @@ from .models import Pokemon, Trainer
 
 @admin.register(Pokemon)
 class PokemonAdmin(admin.ModelAdmin):
-    list_display = ('name', 'type', 'weight', 'height')
+    list_display = ('name', 'type', 'weight', 'height', 'trainer')
     search_fields = ('name', 'type')
 
 
@@ -11,4 +11,3 @@ class PokemonAdmin(admin.ModelAdmin):
 class TrainerAdmin(admin.ModelAdmin):
     list_display = ('name', 'city', 'age')
     search_fields = ('name', 'city')
-    filter_horizontal = ('pokemons',)
