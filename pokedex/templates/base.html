@@ -58,9 +58,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'trainer_list' %}">Entrenadores</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <span class="nav-link">Hola, {{ user.username }}</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/accounts/logout/">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/accounts/login/">Login</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
